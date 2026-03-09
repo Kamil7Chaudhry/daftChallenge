@@ -100,12 +100,18 @@ Your task is to recreate these three historical DAGs using DAFT, making them vis
 #| label: dag-1-1747
 #| echo: true
 
-# TODO: Replace this placeholder with your DAFT code
-# Create a DAG showing the 1747 understanding: Lemons → Scurvy Prevention
+import daft
+import matplotlib.pyplot as plt
 
-# Your code here - recreate the DAG from the reference image
-# Use DAFT to create nodes and edges that match the visual structure
-# Customize colors and styling to make it professional
+def node_style(facecolor, edgecolor):
+    return {'facecolor': facecolor, 'edgecolor': edgecolor, 'linewidth': 2.2, 'alpha': 0.92}
+
+pgm = daft.PGM(dpi=150, alternate_style="outer")
+pgm.add_node("lemons", "Lemons", 1,   1, aspect=2.8, scale=1.15, plot_params=node_style('#FFF3CD', '#D4A017'))
+pgm.add_node("scurvy", "Scurvy", 3.6, 1, aspect=2.8, scale=1.15, plot_params=node_style('#F8D7DA', '#B03A2E'))
+pgm.add_edge("lemons", "scurvy")
+pgm.render()
+plt.show()
 ```
 
 ### DAG 2: The Misguided Belief (Wrong Understanding)
@@ -121,12 +127,14 @@ Your task is to recreate these three historical DAGs using DAFT, making them vis
 #| label: dag-2-misguided
 #| echo: true
 
-# TODO: Replace this placeholder with your DAFT code
-# Create a DAG showing the misguided belief: Acid → Bacteria Death → Scurvy Prevention
-
-# Your code here - recreate the DAG from the reference image
-# This DAG should show the incorrect causal chain
-# Use different colors or styling to indicate this is the wrong understanding
+pgm2 = daft.PGM(dpi=150, alternate_style="outer")
+pgm2.add_node("acid",     "Acid",             1.8, 3,   aspect=2.8, scale=1.15, plot_params=node_style('#D6EAF8', '#1A5276'))
+pgm2.add_node("bacteria", "Bacteria in Food", 1.8, 1.9, aspect=2.8, scale=1.15, plot_params=node_style('#D5F5E3', '#1E8449'))
+pgm2.add_node("scurvy",   "Scurvy",           1.8, 0.8, aspect=2.8, scale=1.15, plot_params=node_style('#F8D7DA', '#B03A2E'))
+pgm2.add_edge("acid",     "bacteria")
+pgm2.add_edge("bacteria", "scurvy")
+pgm2.render()
+plt.show()
 ```
 
 ### DAG 3: The 1928 Understanding (Complete and Correct)
@@ -142,12 +150,14 @@ Your task is to recreate these three historical DAGs using DAFT, making them vis
 #| label: dag-3-1928
 #| echo: true
 
-# TODO: Replace this placeholder with your DAFT code
-# Create a DAG showing the 1928 understanding: Vitamin C → Scurvy Prevention
-
-# Your code here - recreate the DAG from the reference image
-# This should be the most complete and accurate representation
-# Use professional styling that would be suitable for a scientific publication
+pgm3 = daft.PGM(dpi=150, alternate_style="outer")
+pgm3.add_node("vitc",     "Vitamin C",          1.8, 3,   aspect=2.8, scale=1.15, plot_params=node_style('#D5F5E3', '#1E8449'))
+pgm3.add_node("collagen", "Collagen Synthesis",  1.8, 1.9, aspect=2.8, scale=1.15, plot_params=node_style('#EBF5FB', '#1A5276'))
+pgm3.add_node("scurvy",   "Scurvy",              1.8, 0.8, aspect=2.8, scale=1.15, plot_params=node_style('#F8D7DA', '#B03A2E'))
+pgm3.add_edge("vitc",     "collagen")
+pgm3.add_edge("collagen", "scurvy")
+pgm3.render()
+plt.show()
 ```
 
 ## Student Requirements Section: Mastering DAFT Visualization {#student-analysis-section}
