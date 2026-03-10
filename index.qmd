@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 def node_style(facecolor, edgecolor):
     return {'facecolor': facecolor, 'edgecolor': edgecolor, 'linewidth': 2.2, 'alpha': 0.92}
 
-pgm = daft.PGM(150, alternate_style="outer")
+pgm = daft.PGM(alternate_style="outer")
 pgm.add_node("lemons", "Lemons", 1,   1, aspect=2.8, scale=1.15, plot_params=node_style('#FFF3CD', '#D4A017'))
 pgm.add_node("scurvy", "Scurvy", 3.6, 1, aspect=2.8, scale=1.15, plot_params=node_style('#F8D7DA', '#B03A2E'))
 pgm.add_edge("lemons", "scurvy")
@@ -34,7 +34,7 @@ plt.show()
 ```{python}
 #| label: dag-2-misguided
 #| echo: true
-pgm2 = daft.PGM(dpi=150, alternate_style="outer")
+pgm2 = daft.PGM(alternate_style="outer")
 pgm2.add_node("acid",     "Acid",             1.8, 3,   aspect=2.8, scale=1.15, plot_params=node_style('#D6EAF8', '#1A5276'))
 pgm2.add_node("bacteria", "Bacteria in Food", 1.8, 1.9, aspect=2.8, scale=1.15, plot_params=node_style('#D5F5E3', '#1E8449'))
 pgm2.add_node("scurvy",   "Scurvy",           1.8, 0.8, aspect=2.8, scale=1.15, plot_params=node_style('#F8D7DA', '#B03A2E'))
@@ -48,7 +48,7 @@ plt.show()
 ```{python}
 #| label: dag-3-1928
 #| echo: true
-pgm3 = daft.PGM(dpi=150, alternate_style="outer")
+pgm3 = daft.PGM(alternate_style="outer")
 pgm3.add_node("vitc",     "Vitamin C",          1.8, 3,   aspect=2.8, scale=1.15, plot_params=node_style('#D5F5E3', '#1E8449'))
 pgm3.add_node("collagen", "Collagen Synthesis",  1.8, 1.9, aspect=2.8, scale=1.15, plot_params=node_style('#EBF5FB', '#1A5276'))
 pgm3.add_node("scurvy",   "Scurvy",              1.8, 0.8, aspect=2.8, scale=1.15, plot_params=node_style('#F8D7DA', '#B03A2E'))
