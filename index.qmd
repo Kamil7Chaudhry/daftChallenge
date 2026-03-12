@@ -4,18 +4,18 @@ subtitle: "Recreating the Scurvy DAGs with Beautiful Visualizations"
 format:
   html: default
 execute:
-  echo: true
+  echo: false
   eval: true
 ---
 
-# The Scurvy Story: A Data Science Tragedy
+# The Scurvy Story: A Data Science Tragedssy
 
 Scurvy devastated sailors on long voyages for centuries. In 1747, James Lind discovered that lemons prevented scurvy — but not *why*. This incomplete understanding led to a tragic mistake: when scientists later believed it was the *acid* in lemons killing bacteria, they substituted cheaper limes and vinegar. Scurvy returned. It wasn't until 1928 that the true mechanism was discovered — Vitamin C enables collagen synthesis, and without it, the body breaks down. Three DAGs tell this story.
 
 ## DAG 1: Simplified Lind's Model (1747)
 ```{python}
 #| label: dag-1-1747
-#| echo: true
+#| echo: false
 import daft
 import matplotlib.pyplot as plt
 
@@ -33,7 +33,7 @@ plt.show()
 ## DAG 2: Updated Bacterial Theory (Late 19th Century)
 ```{python}
 #| label: dag-2-misguided
-#| echo: true
+#| echo: false
 pgm2 = daft.PGM(alternate_style="outer")
 pgm2.add_node("acid",     "Acid",             1.8, 3,   aspect=2.8, scale=1.15, plot_params=node_style('#D6EAF8', '#1A5276'))
 pgm2.add_node("bacteria", "Bacteria in Food", 1.8, 1.9, aspect=2.8, scale=1.15, plot_params=node_style('#D5F5E3', '#1E8449'))
@@ -47,7 +47,7 @@ plt.show()
 ## DAG 3: Simplified Modern Understanding (1930s onwards)
 ```{python}
 #| label: dag-3-1928
-#| echo: true
+#| echo: false
 pgm3 = daft.PGM(alternate_style="outer")
 pgm3.add_node("vitc",     "Vitamin C",          1.8, 3,   aspect=2.8, scale=1.15, plot_params=node_style('#D5F5E3', '#1E8449'))
 pgm3.add_node("collagen", "Collagen Synthesis",  1.8, 1.9, aspect=2.8, scale=1.15, plot_params=node_style('#EBF5FB', '#1A5276'))
